@@ -15,7 +15,7 @@ int main()
         printf("Memory not allocated");
         return 1;
     }
-
+    
     printf("Enter %d elements:\n", n);
 
     for(i = 0; i < n; i++)
