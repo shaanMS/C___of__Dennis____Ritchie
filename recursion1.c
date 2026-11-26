@@ -8,7 +8,7 @@ if(n==900000)
 return;
 }
 n=n+1;
-printf("%u\n",&stack())
+printf("%u\n",())
 stack(n);
 
 }
