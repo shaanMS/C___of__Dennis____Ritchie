@@ -1,0 +1,209 @@
+# C Programming – Short & Concise Notes
+
+Quick Revision | Exam Preparation
+
+## 1. Function in C
+
+Definition: A function is a block of code that performs a specific task.
+
+Syntax:
+
+c
+
+```c
+return_type function_name(parameters)
+{
+    statements;
+    return value;
+}
+```
+
+Three parts:
+
+1. Declaration: `int add(int, int);`
+2. Calling: `add(10, 20);`
+3. Definition: `int add(int a,int b){ return a+b; }`
+
+Four types:
+
+| Type | Syntax |
+| --- | --- |
+| No argument, no return | `void fun(void)` |
+| Argument, no return | `void fun(int a)` |
+| No argument, return | `int fun(void)` |
+| Argument and return | `int fun(int a)` |
+
+## 2. Function as an Argument
+
+Definition: Passing a function to another function as an argument using a function pointer.
+
+Syntax:
+
+c
+
+```c
+void calculate(int (*ptr)(int,int))
+{
+    ptr(10,20);
+}
+```
+
+Example:
+
+c
+
+```c
+int add(int a,int b)
+{
+    return a+b;
+}
+
+void calculate(int (*ptr)(int,int))
+{
+    printf("%d",ptr(10,20));
+}
+```
+
+Use: Callback functions and code reusability.
+
+## 3. Function Pointer
+
+Definition: A pointer that stores the address of a function.
+
+Syntax:
+
+c
+
+```c
+return_type (*ptr)(parameters);
+```
+
+Example:
+
+c
+
+```c
+int add(int a,int b)
+{
+    return a+b;
+}
+
+int main()
+{
+    int (*ptr)(int,int);
+    ptr = add;
+    printf("%d",ptr(10,20));
+    return 0;
+}
+```
+
+Output: `30`
+
+Uses:
+
+1. Calling functions indirectly.
+2. Passing functions as arguments.
+3. Callback functions.
+4. Dynamic function calling.
+5. Menu-driven programs.
+6. Library functions like `qsort()`.
+
+## 4. Macro in C
+
+Definition: A macro is defined using `#define` and is expanded by the preprocessor before compilation.
+
+Syntax:
+
+c
+
+```c
+#define NAME value
+```
+
+Types of Macros:
+
+1. Object-like Macro
+
+c
+
+```c
+#define PI 3.14
+```
+
+2. Function-like Macro
+
+c
+
+```c
+#define SQUARE(x) ((x)*(x))
+```
+
+3. Multiline Macro
+
+c
+
+```c
+#define DISPLAY(x) \
+printf("%d",x); \
+printf("Done");
+```
+
+Important directives:
+
+| Directive | Use |
+| --- | --- |
+| `#define` | Define macro |
+| `#undef` | Remove macro |
+| `#include` | Include header file |
+| `#ifdef` | Check if macro is defined |
+| `#ifndef` | Check if macro is not defined |
+| `#endif` | End conditional block |
+
+## 5. Macro vs Function
+
+| Macro | Function |
+| --- | --- |
+| Uses `#define` | Uses function syntax |
+| Preprocessor expands it | Called during execution |
+| No normal argument type checking | Type checking |
+| No function call overhead | May have call overhead |
+| Can increase code size | Code is reusable |
+
+## 6. Function vs Function Pointer
+
+| Function | Function Pointer |
+| --- | --- |
+| Performs a task | Stores function address |
+| Called by function name | Called through pointer |
+| Example: `add(2,3)` | Example: `ptr(2,3)` |
+
+## 7. Most Important Syntax – Quick Revision
+
+| Concept | Syntax |
+| --- | --- |
+| Function declaration | `int fun(int);` |
+| Function call | `fun(10);` |
+| Pointer declaration | `int *p;` |
+| Function pointer | `int (*ptr)(int);` |
+| Assign function | `ptr = fun;` |
+| Call using pointer | `ptr(10);` |
+| Object macro | `#define PI 3.14` |
+| Function macro | `#define SQR(x) ((x)*(x))` |
+| Remove macro | `#undef PI` |
+
+## 8. Important Exam Points
+
+- Function = Block of reusable code.
+- Function pointer = Stores address of a function.
+- Function as argument = Passing function through a pointer.
+- Macro = Preprocessor code substitution.
+- `#define` = Used to create macros.
+- `#undef` = Used to remove macro definitions.
+- `(*ptr)` = Important syntax for function pointer.
+
+Final Revision TipExam ke liye sabse important 4 topics:
+
+1. Types of functions with examples.
+2. Function pointer declaration and program.
+3. Function as an argument with program.
+4. Types of macros and difference between macro and function.
